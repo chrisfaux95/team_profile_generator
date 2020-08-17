@@ -49,6 +49,24 @@ const employee_select = [{
 
 const employees = [];
 
+function addEmployees() {
+    inquirer.prompt(employee_select).then(e => {
+        switch(e.role) {
+            case 'Manager':
+                addManager();
+                break;
+            case 'Engineer':
+                addEngineer();
+                break;
+            case 'Intern':
+                addIntern();
+                break;
+            default:
+                console.log(employees);
+                break;
+        }
+    })
+}
 
 function addManager() {
     inquirer.prompt(manager_questions).then(e => {
@@ -71,3 +89,4 @@ function addIntern() {
     });
 }
 
+addEmployees();
