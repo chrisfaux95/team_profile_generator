@@ -48,3 +48,26 @@ const employee_select = [{
 }]
 
 const employees = [];
+
+
+function addManager() {
+    inquirer.prompt(manager_questions).then(e => {
+        employees.push(new Manager(e.name, e.id, e.email, e.officeNumber));
+        addEmployees();
+    });
+}
+
+function addEngineer() {
+    inquirer.prompt(engineer_questions).then(e => {
+        employees.push(new Engineer(e.name, e.id, e.email, e.github));
+        addEmployees();
+    });
+}
+
+function addIntern() {
+    inquirer.prompt(intern_questions).then(e => {
+        employees.push(new Intern(e.name, e.id, e.email, e.school));
+        addEmployees();
+    });
+}
+
