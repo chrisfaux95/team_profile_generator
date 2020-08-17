@@ -40,5 +40,11 @@ const engineer_questions = [...all_questions, {
     message: "What is their github username?"
 }]
 
+const employee_select = [{
+    type: 'list',
+    name: 'role',
+    message: 'What is their role?',
+    choices: ['Manager', 'Engineer', 'Intern', "Stop Adding Employees"]
+}]
 
 const employees = [];
