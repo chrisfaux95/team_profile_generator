@@ -63,7 +63,9 @@ function addEmployees() {
                 addIntern();
                 break;
             default:
-                console.log(employees);
+                // console.log(employees);
+                // console.log(render(employees));
+                writeHTMLFile(render(employees));
                 break;
         }
     })
@@ -88,6 +90,17 @@ function addIntern() {
         employees.push(new Intern(e.name, e.id, e.email, e.school));
         addEmployees();
     });
+}
+
+function writeHTMLFile(html) {
+    const fileName = "team_page.html"
+    // console.log(html);
+    // console.log(__dirname);
+    fs.writeFile("./output/" + fileName, html, (err) => {
+        if (err) throw err;
+        console.log('The page has been saved');
+    });
+
 }
 
 addEmployees();
