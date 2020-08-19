@@ -4,6 +4,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const render = require("./lib/htmlRenderer");
 const fs = require("fs");
+var dir = './output';
 
 const all_questions = [
     {
@@ -106,6 +107,7 @@ function writeHTMLFile(html) {
     const fileName = "team_page.html"
     // console.log(html);
     // console.log(__dirname);
+    if(!fs.existsSync(dir)){ fs.mkdirSync(dir); }
     fs.writeFile("./output/" + fileName, html, (err) => {
         if (err) throw err;
         console.log('The page has been saved');
