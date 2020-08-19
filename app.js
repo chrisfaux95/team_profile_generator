@@ -19,7 +19,8 @@ const all_questions = [
     {
         type: 'input',
         name: 'email',
-        message: "What is their email?"
+        message: "What is their email?",
+        validate: validateEmail
     }
 ];
 
@@ -49,6 +50,15 @@ const employee_select = [{
 }]
 
 const employees = [];
+
+function validateEmail(value){
+    const re_email = /\S+@\S+\.\S+/;
+    if (re_email.test(value)){
+        return true;
+    }
+    return "Please Enter Valid Email";
+}
+
 
 function addEmployees() {
     inquirer.prompt(employee_select).then(e => {
