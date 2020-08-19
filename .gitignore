@@ -2,3 +2,4 @@ node_modules
 package-lock.json
 output/team_page.html
 templates/main copy.html
+.DS_Store
